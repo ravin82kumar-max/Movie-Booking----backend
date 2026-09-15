@@ -2,11 +2,11 @@
   "name": "cinema-backend",
   "version": "1.0.0",
   "private": true,
-  "main": "backend/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js --watch backend",
-    "seed": "node backend/seed.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js --watch .",
+    "seed": "node seed.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
