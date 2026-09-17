@@ -44,6 +44,22 @@ async function seed() {
       genre: "Mystery",
       language: "English",
       poster: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Demo Movie: The Last Lantern",
+      description: "A historical drama where an unlikely hero restores hope in a fading kingdom.",
+      duration: 137,
+      genre: "Drama",
+      language: "Hindi",
+      poster: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Demo Movie: Thunder in the Valley",
+      description: "A thrilling action drama set against a stormy mountain rescue mission.",
+      duration: 121,
+      genre: "Action",
+      language: "Tamil",
+      poster: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=800&q=80"
     }
   ]);
 
@@ -55,7 +71,9 @@ async function seed() {
     { movieId: movieMap["Demo Movie: Sunset Circuit"]._id, theatre: "Downtown Theatre", time: buildShowTime(1, 19, 0), price: 10, bookedSeats: [] },
     { movieId: movieMap["Demo Movie: Sunset Circuit"]._id, theatre: "Downtown Theatre", time: buildShowTime(3, 21, 30), price: 11, bookedSeats: [] },
     { movieId: movieMap["Demo Movie: Midnight Parade"]._id, theatre: "City Lights", time: buildShowTime(1, 17, 45), price: 9, bookedSeats: [] },
-    { movieId: movieMap["Demo Movie: Midnight Parade"]._id, theatre: "City Lights", time: buildShowTime(4, 20, 15), price: 13, bookedSeats: [] }
+    { movieId: movieMap["Demo Movie: Midnight Parade"]._id, theatre: "City Lights", time: buildShowTime(4, 20, 15), price: 13, bookedSeats: [] },
+    { movieId: movieMap["Demo Movie: The Last Lantern"]._id, theatre: "Royal Screen", time: buildShowTime(2, 18, 15), price: 13, bookedSeats: [] },
+    { movieId: movieMap["Demo Movie: Thunder in the Valley"]._id, theatre: "Silver Star", time: buildShowTime(3, 19, 45), price: 15, bookedSeats: [] }
   ]);
 
   console.log("Seed data created with demo movies and sample show dates");
