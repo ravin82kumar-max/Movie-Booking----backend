@@ -13,10 +13,26 @@ app.use("/api/movies", require("./routes/movies"));
 app.use("/api/shows", require("./routes/shows"));
 app.use("/api/bookings", require("./routes/bookings"));
 
-const MONGO = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/movieDB";
-mongoose.connect(MONGO, { useNewUrlParser: true, useUnifiedTopology: true })
-	.then(() => console.log("MongoDB connected"))
-	.catch(err => console.error("MongoDB connection error:", err));
+const primaryMongo = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/movieDB";
+const fallbackMongo = "mongodb://127.0.0.1:27017/movieDB";
+
+async function connectMongo() {
+  const attempts = [primaryMongo, fallbackMongo];
+
+  for (const mongoUrl of attempts) {
+    try {
+      await mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+      console.log(`MongoDB connected to ${mongoUrl}`);
+      return;
+    } catch (err) {
+      console.warn(`MongoDB connection failed for ${mongoUrl}:`, err.message);
+    }
+  }
+
+  console.warn("MongoDB is unavailable. The app will continue with sample/demo data.");
+}
+
+connectMongo();
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
