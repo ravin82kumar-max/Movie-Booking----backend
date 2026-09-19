@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Movie = require("./models/movie");
 const Show = require("./models/show");
 
-const MONGO = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/movieDB";
+const MONGO = process.env.MONGO_URI || "mongodb+srv://ravin82kumar_db_user:Ravin2006@cinema-booking.avnd3y2.mongodb.net/?appName=cinema-booking";
 
 function buildShowTime(daysFromNow, hour, minute = 0) {
   const date = new Date();

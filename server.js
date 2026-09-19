@@ -13,8 +13,9 @@ app.use("/api/movies", require("./routes/movies"));
 app.use("/api/shows", require("./routes/shows"));
 app.use("/api/bookings", require("./routes/bookings"));
 
-const primaryMongo = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/movieDB";
-const fallbackMongo = "mongodb://127.0.0.1:27017/movieDB";
+const atlasMongo = "mongodb+srv://ravin82kumar_db_user:Ravin2006@cinema-booking.avnd3y2.mongodb.net/?appName=cinema-booking";
+const primaryMongo = process.env.MONGO_URI || atlasMongo;
+const fallbackMongo = atlasMongo;
 
 async function connectMongo() {
   const attempts = [primaryMongo, fallbackMongo];
